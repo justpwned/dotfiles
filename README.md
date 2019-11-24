@@ -3,7 +3,8 @@ Different configuration files
 
 # Installation
 
-```sh
+```
+sh
 $ cp .vimrc ~
 $ cat .profile >> ~/.profile
 ```
