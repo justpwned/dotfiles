@@ -4,6 +4,6 @@ Different configuration files
 # Installation
 
 ```sh
-cp .vimrc ~
-cat .profile >> ~/.profile
+$ cp .vimrc ~
+$ cat .profile >> ~/.profile
 ```
