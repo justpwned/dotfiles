@@ -1,7 +1,9 @@
 # dotfiles
 Different configuration files
 
-# How to set up
+# Installation
 
+```sh
 cp .vimrc ~
 cat .profile >> ~/.profile
+```
