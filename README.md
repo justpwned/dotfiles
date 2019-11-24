@@ -5,5 +5,6 @@ Different configuration files
 
 ```
 $ cp .vimrc ~
+$ cp .tmux.conf ~
 $ cat .profile >> ~/.profile
 ```
