@@ -17,6 +17,8 @@ set ruler
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set smartindent
+set smarttab
 
 set laststatus=2
 set hlsearch
@@ -34,6 +36,6 @@ nnoremap <F5> <Esc>:update<CR>:!clear;python3 %<CR>
 inoremap <F6> <Esc>:update<CR>:!python3 %<CR>
 nnoremap <F6> <Esc>:update<CR>:!python3 %<CR>
 
-inoremap {<CR> {<CR>}<Esc>O<Tab>
+inoremap {<CR> {<CR>}<Esc>O
 
 set backspace=indent,eol,start
