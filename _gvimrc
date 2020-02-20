@@ -1,5 +1,7 @@
 set nocompatible
+filetype plugin on
 syntax on
+colo dracula
 
 set encoding=utf-8
 set belloff=all
@@ -18,18 +20,39 @@ set laststatus=2
 set hlsearch
 set ignorecase
 set incsearch
+set smartindent
+set smarttab
+
+set splitbelow
+set splitright
 
 "Keybindings
 
 "<Ctrl-l> redraws the screen and removes any search highlighting
-noremap <silent> <C-l> :nohl<CR><C-l>
+noremap <silent> <C-b> :nohl<CR><C-b>
 
 "<Ctrl-s> saves file, but only when it has been modified
 inoremap <silent> <C-s>		<Esc>:update<CR>
 noremap  <silent> <C-s>		:update<CR>
 
+inoremap <silent> <C-c> <Esc>:bd<CR>
+nnoremap <silent> <C-c> :bd<CR>
+
+"Easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 "Python execution
 inoremap <F5> <Esc>:update<CR>:!python %<CR>
 nnoremap <F5> <Esc>:update<CR>:!python %<CR>
 
+inoremap {<CR> {<CR>}<Esc>O
+
 set backspace=indent,eol,start
+
+" Netrw settings
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_winsize=15
