@@ -1,8 +1,7 @@
 set belloff=all
 
-colorscheme torte
+colorscheme monokai
 set term=screen-256color
-set t_ut=
 
 syntax on
 
@@ -29,6 +28,9 @@ set incsearch
 
 "<Ctrl-l> redraws the screen and removes any search highlighting
 noremap <silent> <C-l> :nohl<CR><C-l>
+
+"Go to normal mode more easily
+inoremap fd <Esc>
 
 "Python execution
 inoremap <F5> <Esc>:update<CR>:!clear;python3 %<CR>
