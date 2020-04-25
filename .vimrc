@@ -9,7 +9,6 @@ set encoding=utf-8
 set belloff=all
 set novb
 
-set wrap
 set number
 set ruler
 
