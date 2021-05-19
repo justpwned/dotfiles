@@ -23,13 +23,26 @@ set hlsearch
 set ignorecase
 set incsearch
 
+"Enable mouse wheel scrolling/selection
+set mouse=a
+
 "Keybindings
+
+"Switch between buffers with Tab and Shift Tab
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+
+"Easier split screen navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "<Ctrl-l> redraws the screen and removes any search highlighting
 noremap <silent> <C-l> :nohl<CR><C-l>
 
 "Go to normal mode more easily
-inoremap fd <Esc>
+"inoremap fd <Esc>
 
 "Python execution
 inoremap <F5> <Esc>:update<CR>:!clear;python3 %<CR>
