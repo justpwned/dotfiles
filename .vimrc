@@ -25,6 +25,7 @@ set incsearch
 
 "Enable mouse wheel scrolling/selection
 set mouse=a
+set clipboard=unnamedplus
 
 "Keybindings
 
@@ -40,15 +41,6 @@ nnoremap <C-H> <C-W><C-H>
 
 "<Ctrl-l> redraws the screen and removes any search highlighting
 noremap <silent> <C-l> :nohl<CR><C-l>
-
-"Go to normal mode more easily
-"inoremap fd <Esc>
-
-"Python execution
-inoremap <F5> <Esc>:update<CR>:!clear;python3 %<CR>
-nnoremap <F5> <Esc>:update<CR>:!clear;python3 %<CR>
-inoremap <F6> <Esc>:update<CR>:!python3 %<CR>
-nnoremap <F6> <Esc>:update<CR>:!python3 %<CR>
 
 inoremap {<CR> {<CR>}<Esc>O
 
