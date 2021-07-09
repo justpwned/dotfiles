@@ -1,0 +1,17 @@
+[user]
+	email = justpwnedfrom@gmail.com
+	name = justpwned
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+[diff]
+	tool = vimdiff
+[credential]
+	helper = store
+[alias]
+	graph = log --oneline --graph
+	grapha = log --oneline --graph --all
+	pushall = !git remote | xargs -l git push --all
+[pull]
+	rebase = false
