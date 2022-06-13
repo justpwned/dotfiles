@@ -1,1 +1,7 @@
 # dotfiles
+
+## Installing
+
+```bash
+stow */
+```
