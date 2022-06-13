@@ -1,7 +1,9 @@
 # dotfiles
 
-## Installing
-
+## Installation
+1. Clone repository and move it to $HOME
+2. Stow required configs
 ```bash
-stow */
+cd dotfiles
+stow */ # stow everything
 ```
