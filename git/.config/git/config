@@ -1,0 +1,17 @@
+[user]
+	email = justpwnedfrom@gmail.com
+	name = justpwned
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+[alias]
+	graph = log --oneline --graph
+	grapha = log --oneline --graph --all
+	pushall = !git remote | xargs -l git push --all
+	st = status
+	ci = commit
+[pull]
+	rebase = false

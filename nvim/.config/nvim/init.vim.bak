@@ -1,0 +1,55 @@
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set smartindent
+set number
+set noerrorbells
+set noswapfile
+set nobackup
+set ignorecase
+set smartcase
+set incsearch
+set scrolloff=8
+set mouse=a
+set clipboard=unnamedplus
+set splitbelow splitright
+set termguicolors
+syntax enable
+filetype plugin indent on
+
+let g:netrw_banner=0
+let mapleader=" "
+
+"Clear search results
+nnoremap <silent><Leader>l :let @/=""<CR>
+"nnoremap <silent><Leader>l :noh<CR>
+
+nnoremap <Leader>r :source $MYVIMRC<CR>
+nnoremap <silent><Leader>e :Lex 30<CR>
+nnoremap Q <Nop>
+noremap q <Nop>
+nnoremap <silent> <Leader>s :update<CR>
+nnoremap K i<CR><Esc>
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+nnoremap Y y$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+vnoremap < <gv
+vnoremap > >gv
