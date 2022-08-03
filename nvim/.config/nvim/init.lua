@@ -38,7 +38,7 @@ vim.opt.iskeyword:append "-"
 vim.opt.whichwrap:append "<,>,[,],h,l"
 
 vim.g.netrw_banner=0
-
+--
 -------------------------------------------
 -------------- KEYMAPS --------------------
 -------------------------------------------
@@ -313,6 +313,9 @@ return require("packer").startup(function(use)
 
     use "mattn/emmet-vim"
     use "tpope/vim-commentary"
+
+    use "williamboman/nvim-lsp-installer"
+    use "neovim/nvim-lspconfig"
 
     if packer_bootstrap then
         require('packer').sync()
