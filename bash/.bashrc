@@ -14,6 +14,12 @@ alias ll='ls -lAF'
 alias se='sudoedit'
 alias fzs='fzf | xargs -r $EDITOR'
 
+nvimconf() {
+    pushd ~/.config/nvim/ > /dev/null
+    nvim init.lua
+    popd > /dev/null
+}
+
 git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -23,6 +29,7 @@ export EDITOR=/usr/bin/nvim
 export LESS="eFRX --mouse"
 export LESSHISTFILE=-
 
+xset r rate 250 25
 
 # --- Auto Generated ---
 
