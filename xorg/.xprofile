@@ -1,0 +1,9 @@
+#!/bin/sh
+setxkbmap -layout us,ru -option grp:win_space_toggle
+setxkbmap -option caps:swapescape
+xset r rate 250 25
+
+flatpak run org.telegram.desktop -startintray &
+flatpak run com.dropbox.Client &
+blueman-applet &
+#picom &
