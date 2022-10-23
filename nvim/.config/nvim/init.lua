@@ -1,5 +1,4 @@
-require 'user.options'
-require 'user.keymap'
-require 'user.packer'
-require 'user.lsp'
-require 'user.globals'
+require "core.options"
+require "core.keymap"
+require "core.packer"
+require "core.lsp"
