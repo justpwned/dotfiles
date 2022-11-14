@@ -41,6 +41,8 @@ nmap("<leader>c", "<cmd>close<cr>")
 nmap("<leader>a", "<cmd>keepjumps normal! ggVG<cr>")
 
 -- Center cursor location on next occurrence
+nmap("<C-u>", "<C-u>zz")
+nmap("<C-d>", "<C-d>zz")
 nmap("n", "nzzzv")
 nmap("N", "Nzzzv")
 nmap("J", "mzJ`z")
