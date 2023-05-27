@@ -1,4 +1,5 @@
 return {
+    'tpope/vim-surround',
     'tpope/vim-sleuth',
 
     {
@@ -15,13 +16,14 @@ return {
     },
 
     {
-        "kylechui/nvim-surround",
-        version = "*", -- use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
+        'rose-pine/neovim',
+        name = 'rose-pine'
+    },
+
+    {
+        'tpope/vim-fugitive',
         config = function()
-            require("nvim-surround").setup({
-                -- configuration here, or leave empty to use defaults
-            })
+            vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
         end
     },
 
@@ -54,5 +56,30 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         opts = {},
+    },
+
+    {
+        'alexghergh/nvim-tmux-navigation',
+        config = function()
+            local nvim_tmux_nav = require('nvim-tmux-navigation')
+
+            nvim_tmux_nav.setup {
+                disable_when_zoomed = true -- defaults to false
+            }
+
+            vim.keymap.set('n', "<A-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+            vim.keymap.set('n', "<A-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+            vim.keymap.set('n', "<A-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+            vim.keymap.set('n', "<A-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+            vim.keymap.set('n', "<A-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+            -- vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+        end
+    },
+
+    {
+        "windwp/nvim-autopairs",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end,
     },
 }

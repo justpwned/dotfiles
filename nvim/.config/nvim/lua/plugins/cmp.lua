@@ -31,7 +31,7 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
                 ['<C-d>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-e>'] = cmp.mapping.abort(),
+                -- ['<C-e>'] = cmp.mapping.abort(),
                 ['<C-Space>'] = cmp.mapping.complete {},
                 ['<Tab>'] = cmp.mapping.confirm {
                     behavior = cmp.ConfirmBehavior.Replace,
@@ -47,10 +47,10 @@ return {
             },
         }
 
-        vim.keymap.set('i', '<tab>', function()
-            return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-        end, { expr = true, silent = true })
-        vim.keymap.set('s', '<tab>', function() require("luasnip").jump(1) end, {})
-        vim.keymap.set('s', '<s-tab>', function() require("luasnip").jump(-1) end, {})
+        -- vim.keymap.set('i', '<tab>', function()
+        --     return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        -- end, { expr = true, silent = true })
+        -- vim.keymap.set('s', '<tab>', function() require("luasnip").jump(1) end, {})
+        -- vim.keymap.set('s', '<s-tab>', function() require("luasnip").jump(-1) end, {})
     end,
 }

@@ -5,23 +5,27 @@ local update_opts = function(opts)
 end
 
 local map = function(lhs, rhs, opts)
-    vim.api.nvim_set_keymap("", lhs, rhs, update_opts(opts))
+    vim.keymap.set("", lhs, rhs, update_opts(opts))
 end
 
 local nmap = function(lhs, rhs, opts)
-    vim.api.nvim_set_keymap("n", lhs, rhs, update_opts(opts))
+    vim.keymap.set("n", lhs, rhs, update_opts(opts))
 end
 
 local imap = function(lhs, rhs, opts)
-    vim.api.nvim_set_keymap("i", lhs, rhs, update_opts(opts))
+    vim.keymap.set("i", lhs, rhs, update_opts(opts))
 end
 
 local vmap = function(lhs, rhs, opts)
-    vim.api.nvim_set_keymap("x", lhs, rhs, update_opts(opts))
+    vim.keymap.set("x", lhs, rhs, update_opts(opts))
 end
 
 local tmap = function(lhs, rhs, opts)
-    vim.api.nvim_set_keymap("t", lhs, rhs, update_opts(opts))
+    vim.keymap.set("t", lhs, rhs, update_opts(opts))
+end
+
+local cmap = function(lhs, rhs, opts)
+    vim.keymap.set("c", lhs, rhs, update_opts(opts))
 end
 
 vim.g.mapleader = " "
@@ -31,15 +35,21 @@ vim.g.maplocalleader = " "
 map("<C-c>", "<Esc>")
 imap("<C-c>", "<Esc>")
 tmap("<Esc>", "<C-\\><C-n>")
+cmap("<Down>", "<C-n>")
+cmap("<Up>", "<C-p>")
 
+map("Q", "<Nop>")
 map("<Space>", "<Nop>")
 
+nmap("<leader>pv", vim.cmd.Ex)
 nmap("<leader>e", "<cmd>Neotree toggle dir=./<cr>")
 nmap("<leader>s", "<cmd>update<cr>")
 nmap("<leader>m", "<cmd>messages<cr>")
 nmap("<leader>l", "<cmd>noh<cr>", { silent = true })
-nmap("<leader>q", "<cmd>qa!<cr>")
-nmap("<leader>c", "<cmd>close<cr>")
+nmap("<leader>qq", "<cmd>qa<cr>")
+nmap("<leader>qs", "<cmd>qwa<cr>")
+nmap("<leader>qf", "<cmd>qa!<cr>")
+nmap("<leader>dw", "<cmd>close<cr>")
 
 -- Center cursor location on next occurrence
 nmap("<C-u>", "<C-u>zz")
@@ -48,10 +58,10 @@ nmap("n", "nzzzv")
 nmap("N", "Nzzzv")
 nmap("J", "mzJ`z")
 
-nmap("<C-h>", "<cmd>wincmd h<cr>")
-nmap("<C-j>", "<cmd>wincmd j<cr>")
-nmap("<C-k>", "<cmd>wincmd k<cr>")
-nmap("<C-l>", "<cmd>wincmd l<cr>")
+-- nmap("<C-h>", "<cmd>wincmd h<cr>")
+-- nmap("<C-j>", "<cmd>wincmd j<cr>")
+-- nmap("<C-k>", "<cmd>wincmd k<cr>")
+-- nmap("<C-l>", "<cmd>wincmd l<cr>")
 
 nmap("<C-Up>", "<cmd>resize +10<cr>")
 nmap("<C-Down>", "<cmd>resize -10<cr>")

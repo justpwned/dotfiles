@@ -10,6 +10,9 @@ return {
         'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+        vim.diagnostic.config({
+            virtual_text = false,
+        })
         local on_attach = function(_, bufnr)
             local nmap = function(keys, func, desc)
                 if desc then
@@ -21,7 +24,8 @@ return {
 
             nmap('[d', vim.diagnostic.goto_prev, "Go to previous diagnostic message")
             nmap(']d', vim.diagnostic.goto_next, "Go to next diagnostic message")
-            nmap('<leader>dq', vim.diagnostic.setloclist, "Open diagnostics list")
+            nmap('<leader>dl', vim.diagnostic.setloclist, "Open diagnostics list")
+            nmap('gl', vim.diagnostic.open_float, "Show diagnostics message")
 
             nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -128,7 +132,7 @@ return {
 
                 -- Create an autocmd that will run *before* we save the buffer.
                 --  Run the formatting command for the LSP that has just attached.
-                vim.api.nvim_create_autocmd('BufWritePre', {
+                vim.api.nvim_create_autocmd({ 'BufWritePre', 'InsertLeave' }, {
                     group = get_augroup(client),
                     buffer = bufnr,
                     callback = function()

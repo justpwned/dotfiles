@@ -16,26 +16,22 @@ return {
         telescope.setup()
         telescope.load_extension('fzf')
 
+        local builtin = require('telescope.builtin')
         vim.keymap.set("n", "<leader>ff", function()
-            require("telescope.builtin").find_files({ hidden = true })
+            builtin.find_files({ hidden = true })
         end)
-        vim.keymap.set("n", "<leader>fg", function()
-            require("telescope.builtin").live_grep()
-        end)
+        vim.keymap.set("n", "<C-p>", builtin.git_files)
+
+        vim.keymap.set("n", "<leader>fs", builtin.live_grep)
+        vim.keymap.set("n", "<leader>bf", builtin.buffers)
         vim.keymap.set("n", "<leader>/", function()
-            require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+            builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                 winblend = 10,
                 previewer = false,
             })
         end)
-        vim.keymap.set("n", "<leader>fw", function()
-            require("telescope.builtin").grep_string()
-        end)
-        vim.keymap.set("n", "<leader>fo", function()
-            require("telescope.builtin").oldfiles()
-        end)
-        vim.keymap.set("n", "<leader>fd", function()
-            require("telescope.builtin").diagnostics()
-        end)
+        vim.keymap.set("n", "<leader>fw", builtin.grep_string)
+        vim.keymap.set("n", "<leader>fo", builtin.oldfiles)
+        vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
     end,
 }
