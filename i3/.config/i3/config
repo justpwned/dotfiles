@@ -10,7 +10,7 @@ font pango:JetBrainsMono Nerd Font 11
 exec --no-startup-id dex --autostart --environment i3
 
 set $lock ~/.config/i3/scripts/lock.sh
-exec --no-startup-id xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 $lock '' --timer 600 'systemctl suspend' ''
+exec --no-startup-id xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 600 $lock '' --timer 600 'systemctl suspend' ''
 bindsym $mod+Shift+x exec --no-startup-id $lock
 
 exec --no-startup-id nm-applet
@@ -94,7 +94,7 @@ set $show_desktop ~/.config/i3/scripts/show_desktop.sh
 bindsym $mod+n exec --no-startup-id $next_ws
 bindsym $mod+Shift+n exec --no-startup-id $next_ws -m
 bindsym $mod+d exec --no-startup-id $show_desktop 
-bindsym $mod+Shift+d workspace number $ws1; workspace number $ws2
+bindsym $mod+Shift+d workspace $ws2; workspace $ws1
 bindsym $mod+grave workspace back_and_forth
 
 bindsym $mod+Shift+1 move container to workspace number $ws1
