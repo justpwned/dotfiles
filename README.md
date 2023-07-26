@@ -5,5 +5,5 @@
 2. Stow required configs
 ```bash
 cd dotfiles
-stow */ # stow everything
+stow config_directory
 ```

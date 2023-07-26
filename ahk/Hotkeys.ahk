@@ -71,7 +71,7 @@ ToggleApplication(processName, launchPath)
 #t::
     ToggleApplication("Telegram.exe", "C:\Users\justp\AppData\Roaming\Telegram Desktop\Telegram.exe")
     return
-/*
+
 ; Disable CapsLock completely
 CapsLock::		; CapsLock
 +CapsLock::	; Shift+CapsLock
@@ -93,6 +93,4 @@ return
     k::Up
     l::Right
     d::Delete
-    q::^#Left
-    w::^#Right
-*/
+    c::Escape
