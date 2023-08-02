@@ -31,11 +31,6 @@ vim.o.sidescrolloff = 8
 vim.o.breakindent = true
 vim.o.signcolumn = 'yes'
 
-vim.g.netrw_banner = 0
-vim.g.netrw_keepdir = 0
-vim.g.netrw_winsize = 30
-vim.g.netrw_localcopydircmd = "cp -r"
-
 -- See `:help vim.highlight.on_yank`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {

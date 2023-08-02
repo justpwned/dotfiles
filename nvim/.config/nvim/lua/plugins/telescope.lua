@@ -13,25 +13,32 @@ return {
     },
     config = function()
         local telescope = require('telescope')
-        telescope.setup()
-        telescope.load_extension('fzf')
+        telescope.setup {
+            defaults = {
+                layout_config = {
+                    height = 0.5,
+                }
+            },
+            pickers = {
+                find_files = {
+                    theme = "dropdown",
+                    previewer = false,
+                },
+                git_files = {
+                    theme = "dropdown",
+                    previewer = false,
+                },
+            }
+        }
+
+        telescope.load_extension 'fzf'
+
 
         local builtin = require('telescope.builtin')
-        vim.keymap.set("n", "<leader>ff", function()
-            builtin.find_files({ hidden = true })
-        end)
-        vim.keymap.set("n", "<C-p>", builtin.git_files)
 
+        vim.keymap.set("n", "<leader>ff", builtin.find_files)
+        vim.keymap.set("n", "<leader>fp", builtin.git_files)
         vim.keymap.set("n", "<leader>fs", builtin.live_grep)
-        vim.keymap.set("n", "<leader>bf", builtin.buffers)
-        vim.keymap.set("n", "<leader>/", function()
-            builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                winblend = 10,
-                previewer = false,
-            })
-        end)
-        vim.keymap.set("n", "<leader>fw", builtin.grep_string)
-        vim.keymap.set("n", "<leader>fo", builtin.oldfiles)
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
     end,
 }

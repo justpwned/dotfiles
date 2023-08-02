@@ -41,12 +41,11 @@ cmap("<Up>", "<C-p>")
 map("Q", "<Nop>")
 map("<Space>", "<Nop>")
 
-nmap("<leader>e", "<cmd>Neotree toggle dir=./<cr>")
--- nmap("<leader>pv", vim.cmd.Ex)
 -- nmap("<leader>s", "<cmd>update<cr>")
 -- nmap("<leader>m", "<cmd>messages<cr>")
 -- nmap("<leader>l", "<cmd>noh<cr>", { silent = true })
 -- nmap("<leader>c", "<cmd>close<cr>")
+-- nmap("<leader>q", "<cmd>qa!<cr>")
 
 -- Center cursor location on next occurrence
 nmap("<C-u>", "<C-u>zz")
@@ -59,6 +58,11 @@ nmap("J", "mzJ`z")
 -- nmap("<C-j>", "<cmd>wincmd j<cr>")
 -- nmap("<C-k>", "<cmd>wincmd k<cr>")
 -- nmap("<C-l>", "<cmd>wincmd l<cr>")
+
+nmap("<C-Up>", "<cmd>resize +10<cr>")
+nmap("<C-Down>", "<cmd>resize -10<cr>")
+nmap("<C-Left>", "<cmd>vertical resize -10<cr>")
+nmap("<C-Right>", "<cmd>vertical resize +10<cr>")
 
 vmap("<", "<gv")
 vmap(">", ">gv")

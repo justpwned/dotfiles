@@ -43,11 +43,7 @@ return {
 
             -- Lesser used LSP functionality
             nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-            -- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-            -- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-            -- nmap('<leader>wl', function()
-            --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-            -- end, '[W]orkspace [L]ist Folders')
+
 
             -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -56,7 +52,11 @@ return {
             nmap("<leader>fl", "<cmd>Format<cr>", "Format file")
         end
 
-        local servers = {
+        local servers_config = {
+            gopls = {},
+            pyright = {},
+            tsserver = {},
+            clangd = {},
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
@@ -74,7 +74,7 @@ return {
         local mason_lspconfig = require 'mason-lspconfig'
 
         mason_lspconfig.setup {
-            ensure_installed = vim.tbl_keys(servers),
+            ensure_installed = vim.tbl_keys(servers_config),
         }
 
         mason_lspconfig.setup_handlers {
@@ -82,7 +82,7 @@ return {
                 require('lspconfig')[server_name].setup {
                     capabilities = capabilities,
                     on_attach = on_attach,
-                    settings = servers[server_name],
+                    settings = servers_config[server_name],
                 }
             end,
         }
@@ -112,7 +112,7 @@ return {
         --
         -- See `:help LspAttach` for more information about this autocmd event.
         vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('kickstart-lsp-attach-format', { clear = true }),
+            group = vim.api.nvim_create_augroup('lsp-attach-format', { clear = true }),
             -- This is where we attach the autoformatting for reasonable clients
             callback = function(args)
                 local client_id = args.data.client_id
