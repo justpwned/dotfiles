@@ -6,7 +6,10 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                flavour = "latte"
+                flavour = "latte",
+                integrations = {
+                    mason = true,
+                },
             })
             vim.cmd.colorscheme "catppuccin"
         end

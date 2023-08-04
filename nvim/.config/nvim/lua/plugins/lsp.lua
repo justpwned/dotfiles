@@ -13,6 +13,7 @@ return {
         vim.diagnostic.config({
             virtual_text = false,
         })
+
         local on_attach = function(_, bufnr)
             local nmap = function(keys, func, desc)
                 if desc then
@@ -35,15 +36,13 @@ return {
             nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
             nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
             nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-            -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
             -- See `:help K` for why this keymap
             nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-            nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+            nmap('<C-h>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
             -- Lesser used LSP functionality
             nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
 
             -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -52,8 +51,23 @@ return {
             nmap("<leader>fl", "<cmd>Format<cr>", "Format file")
         end
 
+        local hover_config = {
+            border = "rounded",
+            max_width = 80,
+        }
+
+        local handlers = {
+            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, hover_config),
+            ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, hover_config),
+        }
+
         local servers_config = {
-            gopls = {},
+            gopls = {
+                usePlaceholders = true,
+                analyses = {
+                    unusedparams = true,
+                },
+            },
             pyright = {},
             tsserver = {},
             clangd = {},
@@ -83,11 +97,11 @@ return {
                     capabilities = capabilities,
                     on_attach = on_attach,
                     settings = servers_config[server_name],
+                    handlers = handlers,
                 }
             end,
         }
 
-        -- Autoformatting with LSP
         local format_is_enabled = true
         vim.api.nvim_create_user_command('KickstartFormatToggle', function()
             format_is_enabled = not format_is_enabled
@@ -112,7 +126,7 @@ return {
         --
         -- See `:help LspAttach` for more information about this autocmd event.
         vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('lsp-attach-format', { clear = true }),
+            group = vim.api.nvim_create_augroup('kickstart-lsp-attach-format', { clear = true }),
             -- This is where we attach the autoformatting for reasonable clients
             callback = function(args)
                 local client_id = args.data.client_id
@@ -132,7 +146,7 @@ return {
 
                 -- Create an autocmd that will run *before* we save the buffer.
                 --  Run the formatting command for the LSP that has just attached.
-                vim.api.nvim_create_autocmd({ 'BufWritePre', 'InsertLeave' }, {
+                vim.api.nvim_create_autocmd('BufWritePre', {
                     group = get_augroup(client),
                     buffer = bufnr,
                     callback = function()

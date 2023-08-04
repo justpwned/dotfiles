@@ -45,7 +45,10 @@ map("<Space>", "<Nop>")
 -- nmap("<leader>m", "<cmd>messages<cr>")
 -- nmap("<leader>l", "<cmd>noh<cr>", { silent = true })
 -- nmap("<leader>c", "<cmd>close<cr>")
--- nmap("<leader>q", "<cmd>qa!<cr>")
+nmap("<leader>q", "<cmd>qa!<cr>")
+
+-- Search and replace word under cursor
+nmap("<leader>s", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
 -- Center cursor location on next occurrence
 nmap("<C-u>", "<C-u>zz")
@@ -67,5 +70,12 @@ nmap("<C-Right>", "<cmd>vertical resize +10<cr>")
 vmap("<", "<gv")
 vmap(">", ">gv")
 vmap("p", '"_dP')
+vmap("J", ":m '>+1<cr>gv=gv")
+vmap("K", ":m '<-2<cr>gv=gv")
 nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 nmap('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+nmap("<C-k>", "<cmd>cnext<cr>zz")
+nmap("<C-j>", "<cmd>cprev<cr>zz")
+nmap("<leader>k", "<cmd>lnext<cr>zz")
+nmap("<leader>j", "<cmd>lprev<cr>zz")
