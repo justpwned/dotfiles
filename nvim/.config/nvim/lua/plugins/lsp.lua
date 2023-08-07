@@ -24,6 +24,13 @@ return {
 
                 vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
             end
+            local imap = function(keys, func, desc)
+                if desc then
+                    desc = 'LSP: ' .. desc
+                end
+
+                vim.keymap.set('i', keys, func, { buffer = bufnr, desc = desc })
+            end
 
             nmap('[d', vim.diagnostic.goto_prev, "Go to previous diagnostic message")
             nmap(']d', vim.diagnostic.goto_next, "Go to next diagnostic message")
@@ -43,7 +50,8 @@ return {
 
             -- See `:help K` for why this keymap
             nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-            nmap('<C-h>', vim.lsp.buf.signature_help, 'Signature Documentation')
+            nmap('<C-p>', vim.lsp.buf.signature_help, 'Signature Documentation')
+            imap('<C-p>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
             -- Lesser used LSP functionality
             nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
