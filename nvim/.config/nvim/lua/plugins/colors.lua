@@ -9,6 +9,7 @@ return {
                 flavour = "latte",
                 integrations = {
                     mason = true,
+                    neotest = true,
                 },
             })
             vim.cmd.colorscheme "catppuccin"

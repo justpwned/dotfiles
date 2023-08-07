@@ -44,7 +44,7 @@ map("<Space>", "<Nop>")
 -- nmap("<leader>s", "<cmd>update<cr>")
 -- nmap("<leader>m", "<cmd>messages<cr>")
 -- nmap("<leader>l", "<cmd>noh<cr>", { silent = true })
--- nmap("<leader>c", "<cmd>close<cr>")
+nmap("<leader>c", "<cmd>close<cr>")
 nmap("<leader>q", "<cmd>qa!<cr>")
 
 -- Search and replace word under cursor

@@ -11,7 +11,9 @@ return {
     },
     config = function()
         vim.diagnostic.config({
-            virtual_text = false,
+            virtual_text = true,
+            update_in_insert = false,
+            underline = true
         })
 
         local on_attach = function(_, bufnr)
@@ -25,6 +27,8 @@ return {
 
             nmap('[d', vim.diagnostic.goto_prev, "Go to previous diagnostic message")
             nmap(']d', vim.diagnostic.goto_next, "Go to next diagnostic message")
+            -- nmap('[e', function() vim.diagnostic.goto_prev({ severity = "ERROR" }) end, "Go to previous error message")
+            -- nmap(']e', function() vim.diagnostic.goto_next({ severity = "ERROR" }) end, "Go to next error message")
             nmap('<leader>dl', vim.diagnostic.setloclist, "Open diagnostics list")
             nmap('gl', vim.diagnostic.open_float, "Show diagnostics message")
 
