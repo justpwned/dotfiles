@@ -20,7 +20,25 @@ function vim.project_files()
         end
     end
 
-    return project_files
+    return project_files()
+end
+
+function vim.find_files_from_project_git_root()
+    local function is_git_repo()
+        vim.fn.system("git rev-parse --is-inside-work-tree")
+        return vim.v.shell_error == 0
+    end
+    local function get_git_root()
+        local dot_git_path = vim.fn.finddir(".git", ".;")
+        return vim.fn.fnamemodify(dot_git_path, ":h")
+    end
+    local opts = {}
+    if is_git_repo() then
+        opts = {
+            cwd = get_git_root(),
+        }
+    end
+    require("telescope.builtin").find_files(opts)
 end
 
 return {
@@ -64,7 +82,8 @@ return {
 
         local builtin = require('telescope.builtin')
         vim.keymap.set("n", "<leader>ff", builtin.find_files)
-        vim.keymap.set("n", "<leader>fp", vim.project_files())
+        vim.keymap.set("n", "<leader>fp", vim.find_files_from_project_git_root)
+        vim.keymap.set("n", "<leader>fP", builtin.git_files)
         vim.keymap.set("n", "<leader>fs", builtin.live_grep)
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
     end,

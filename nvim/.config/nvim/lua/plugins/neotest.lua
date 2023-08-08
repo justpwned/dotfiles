@@ -42,7 +42,7 @@ return {
                 desc = "Run All Test Files"
             },
             {
-                "<leader>tt",
+                "<leader>te",
                 function() require("neotest").run.run() end,
                 desc = "Run Nearest"
             },
