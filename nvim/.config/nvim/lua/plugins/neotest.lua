@@ -32,12 +32,12 @@ return {
         end,
         keys = {
             {
-                "<leader>tf",
+                "<leader>ta",
                 function() require("neotest").run.run(vim.fn.expand("%")) end,
                 desc = "Run File"
             },
             {
-                "<leader>ta",
+                "<leader>td",
                 function() require("neotest").run.run(vim.loop.cwd()) end,
                 desc = "Run All Test Files"
             },
