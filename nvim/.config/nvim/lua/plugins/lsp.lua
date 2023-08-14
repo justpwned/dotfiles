@@ -83,7 +83,6 @@ return {
             },
             pyright = {},
             tsserver = {},
-            clangd = {},
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
