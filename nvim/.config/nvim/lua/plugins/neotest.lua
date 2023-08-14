@@ -5,7 +5,6 @@ return {
             "nvim-neotest/neotest-go",
         },
         config = function()
-            -- get neotest namespace (api call creates or returns namespace)
             local neotest_ns = vim.api.nvim_create_namespace("neotest")
             vim.diagnostic.config({
                 virtual_text = {
@@ -24,7 +23,6 @@ return {
                 }
             }, neotest_ns)
             require("neotest").setup({
-                -- your neotest config here
                 adapters = {
                     require("neotest-go"),
                 }
@@ -77,5 +75,11 @@ return {
                 desc = "Jump to previous failed test"
             },
         },
-    }
+    },
+    {
+        "mfussenegger/nvim-dap",
+        keys = {
+            { "<leader>tD", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Debug Nearest" },
+        },
+    },
 }
