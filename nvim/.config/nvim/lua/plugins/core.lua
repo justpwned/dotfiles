@@ -1,6 +1,12 @@
 return {
     'tpope/vim-surround',
     'tpope/vim-sleuth',
+
+    {
+        'asiryk/auto-hlsearch.nvim',
+        config = true,
+    },
+
     'lukas-reineke/indent-blankline.nvim',
     {
         'mbbill/undotree',
