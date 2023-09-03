@@ -58,5 +58,9 @@ return {
 
             vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
         end
-    }
+    },
+    {
+        'stevearc/dressing.nvim',
+        opts = {},
+    },
 }

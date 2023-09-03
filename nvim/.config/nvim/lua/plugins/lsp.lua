@@ -81,15 +81,36 @@ return {
                     unusedparams = true,
                 },
             },
-            pyright = {},
-            tsserver = {},
             lua_ls = {
                 Lua = {
-                    workspace = { checkThirdParty = false },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                            [vim.fn.stdpath("config") .. "/lua"] = true,
+                        },
+                    },
                     telemetry = { enable = false },
                     diagnostics = {
                         globals = { 'vim' },
                     },
+                },
+            },
+            clangd = {},
+            pyright = {},
+            tsserver = {},
+            emmet_ls = {},
+            jsonls = {},
+            cssls = {},
+            html = {
+                format = {
+                    templating = true,
+                    wrapLineLength = 120,
+                    wrapAttributes = 'auto',
+                },
+                hover = {
+                    documentation = true,
+                    references = true,
                 },
             },
         }
@@ -112,6 +133,26 @@ return {
                     handlers = handlers,
                 }
             end,
+            ["emmet_ls"] = function()
+                require('lspconfig')["emmet_ls"].setup {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss",
+                        "svelte", "pug", "typescriptreact", "vue", "template" },
+                    settings = servers_config["emmet_ls"],
+                    handlers = handlers
+                }
+            end,
+            ["html"] = function()
+                require('lspconfig')["html"].setup {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    filetypes = { "html", "template" },
+                    settings = servers_config["html"],
+                    handlers = handlers
+                }
+            end,
+
         }
 
         local format_is_enabled = true
