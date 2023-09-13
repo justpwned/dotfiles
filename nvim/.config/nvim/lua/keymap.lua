@@ -44,7 +44,6 @@ map("<Space>", "<Nop>")
 -- nmap("<leader>s", "<cmd>update<cr>")
 -- nmap("<leader>m", "<cmd>messages<cr>")
 -- nmap("<leader>l", "<cmd>noh<cr>", { silent = true })
-nmap("<leader>c", "<cmd>close<cr>")
 nmap("<leader>q", "<cmd>qa!<cr>")
 
 -- Search and replace word under cursor
@@ -75,7 +74,9 @@ vmap("K", ":m '<-2<cr>gv=gv")
 nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 nmap('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- nmap("<C-k>", "<cmd>cnext<cr>zz")
--- nmap("<C-j>", "<cmd>cprev<cr>zz")
+nmap("<C-j>", "<cmd>cnext<cr>zz")
+nmap("<C-k>", "<cmd>cprev<cr>zz")
+nmap("<leader>c", "<cmd>cclose<cr>")
+
 nmap("<leader>k", "<cmd>lnext<cr>zz")
 nmap("<leader>j", "<cmd>lprev<cr>zz")
