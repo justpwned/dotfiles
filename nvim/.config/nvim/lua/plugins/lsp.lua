@@ -42,12 +42,15 @@ return {
             nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
+            local builtin = require('telescope.builtin')
             nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-            nmap('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+            nmap('<leader>gr', builtin.lsp_references, '[G]oto [R]eferences')
             nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
             nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
             nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-            nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+            nmap('<leader>ds', function()
+                builtin.lsp_document_symbols({ symbol_width = 40 })
+            end, '[D]ocument [S]ymbols')
 
             -- See `:help K` for why this keymap
             nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
