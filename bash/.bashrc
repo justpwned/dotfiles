@@ -12,7 +12,7 @@ fi
 stty -ixon
 shopt -s autocd
 
-export LESS="--mouse"
+export LESS="--mouse -R"
 export LESSHISTFILE=-
 export EDITOR=nvim
 export VISUAL=nvim
