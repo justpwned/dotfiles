@@ -19,7 +19,10 @@ return {
 
     {
         "ellisonleao/gruvbox.nvim",
-        priority = 1000
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme "gruvbox"
+        end
     },
 
     {
@@ -36,7 +39,7 @@ return {
         },
         config = function(_, opts)
             require("rose-pine").setup(opts)
-            vim.cmd.colorscheme "rose-pine"
+            -- vim.cmd.colorscheme "rose-pine"
         end
     },
 
