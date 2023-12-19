@@ -8,15 +8,13 @@ return {
     },
 
     {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            vim.opt.list = true
-            vim.opt.listchars:append "eol:↴"
-
-            require("indent_blankline").setup {
-                show_end_of_line = true,
-            }
-        end
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            scope = {
+                enabled = false,
+            },
+        },
     },
 
     {
@@ -42,6 +40,7 @@ return {
             require("nvim-autopairs").setup {}
         end,
     },
+
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -59,6 +58,7 @@ return {
             vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
         end
     },
+
     {
         'stevearc/dressing.nvim',
         opts = {},
