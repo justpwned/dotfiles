@@ -1,32 +1,32 @@
 ; Close window
 #q::
     WinClose, A
-    return
+return
 
 ; Move window to the right monitor
 #+h::
     Send #+{Left}
-    return
+return
 
 ; Move window to the left monitor
 #+l::
     Send #+{Right}
-    return
+return
 
 ; Tile window to the left
 #^h::
     Send #{Left}
-    return
+return
 
 ; Tile window to the right
 #^l::
     Send #{Right}
-    return
+return
 
 ; Minimize window
 #h::
     WinMinimize, A
-    return
+return
 
 ; Toggle window maximum size
 #f::
@@ -34,11 +34,16 @@
     If MX
         WinRestore A
     Else WinMaximize A
-    return
+        return
+
+; Launch Task Manager
+#Escape::
+    Send ^+{Escape}
+return
 
 ; Launch calculator
 #c::
-    Run calc.exe
+    Run "C:\Windows\System32\calc.exe"
     return
 
 ; Launch Browser
@@ -46,12 +51,7 @@
     Run chrome.exe
     return
 
-; Launch Task Manager
-#Escape::
-    Send ^+{Escape}
-    return
-
-ToggleApplication(processName, launchPath)
+FocusOrLaunch(processName, launchPath)
 {
     IfWinExist ahk_exe %processName%
         WinActivate ahk_exe %processName%
@@ -62,35 +62,21 @@ ToggleApplication(processName, launchPath)
     WinWaitActive ahk_exe %processName%
 }
 
-; Open Spotify
-#s::
-    ToggleApplication("Spotify.exe", "C:\Users\justp\AppData\Roaming\Spotify\Spotify.exe")
-    return
-
-; Open Telegram
 #t::
-    ToggleApplication("Telegram.exe", "C:\Users\justp\AppData\Roaming\Telegram Desktop\Telegram.exe")
-    return
-
-; Disable CapsLock completely
-CapsLock::		; CapsLock
-+CapsLock::	; Shift+CapsLock
-!CapsLock::	; Alt+CapsLock
-^CapsLock::		; Ctrl+CapsLock
-#CapsLock::		; Win+CapsLock
-^!CapsLock::	; Ctrl+Alt+CapsLock		
-^!#CapsLock::	; Ctrl+Alt+Win+CapsLock
-^+CapsLock::
-+!CapsLock::
-+^!CapsLock::
+    FocusOrLaunch("Telegram.exe", "C:\Users\justp\AppData\Roaming\Telegram Desktop\Telegram.exe")
 return
 
-; Second layer
-#If, GetKeyState("CapsLock", "P")
-    a::Send {Blind}{CapsLock}
-    h::Left
-    j::Down
-    k::Up
-    l::Right
-    d::Delete
-    c::Escape
+Capslock::Esc
+
+Capslock & a::
+	KeyWait, Capslock  ; SetCapsLockState may fail without this.
+	if GetKeyState("Capslock", "T") = 0
+		SetCapsLockState, On
+	else
+		SetCapsLockState, AlwaysOff
+	return
+
+Capslock & h::Send, {Blind}{Left}
+Capslock & j::Send, {Blind}{Down}
+Capslock & k::Send, {Blind}{Up}
+Capslock & l::Send, {Blind}{Right}
