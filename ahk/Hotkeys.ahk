@@ -80,3 +80,4 @@ Capslock & h::Send, {Blind}{Left}
 Capslock & j::Send, {Blind}{Down}
 Capslock & k::Send, {Blind}{Up}
 Capslock & l::Send, {Blind}{Right}
+Capslock & d::Send, {Blind}{Delete}
