@@ -218,6 +218,7 @@ Return
 
 #Escape::OpenOrShowAppBasedOnExeName("C:\Windows\system32\Taskmgr.exe")
 #c::OpenOrShowAppBasedOnAppModelUserID("Calculator", "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App")
+#s::OpenOrShowAppBasedOnAppModelUserID("Spotify", "SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
 #t::OpenOrShowAppBasedOnExeName("C:\Users\justp\AppData\Roaming\Telegram Desktop\Telegram.exe")
 #b::Run chrome.exe
 
@@ -243,3 +244,10 @@ Capslock & 3::Send, {Volume_Mute}
 Capslock & 4::Send, {Media_Play_Pause}
 Capslock & 5::Send, {Media_Prev}
 Capslock & 6::Send, {Media_Next}
+
+AppsKey & f11::Send, {Volume_Down}
+AppsKey & f12::Send, {Volume_Up}
+AppsKey & f10::Send, {Volume_Mute}
+AppsKey & f9::Send, {Media_Play_Pause}
+AppsKey & f7::Send, {Media_Prev}
+AppsKey & f8::Send, {Media_Next}
