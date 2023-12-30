@@ -66,6 +66,8 @@ FocusOrLaunch(processName, launchPath)
     FocusOrLaunch("Telegram.exe", "C:\Users\justp\AppData\Roaming\Telegram Desktop\Telegram.exe")
 return
 
+
+
 Capslock::Esc
 
 Capslock & a::
@@ -81,3 +83,10 @@ Capslock & j::Send, {Blind}{Down}
 Capslock & k::Send, {Blind}{Up}
 Capslock & l::Send, {Blind}{Right}
 Capslock & d::Send, {Blind}{Delete}
+
+Capslock & 1::Send, {Volume_Down}
+Capslock & 2::Send, {Volume_Up}
+Capslock & 3::Send, {Volume_Mute}
+Capslock & 4::Send, {Media_Play_Pause}
+Capslock & 5::Send, {Media_Prev}
+Capslock & 6::Send, {Media_Next}
