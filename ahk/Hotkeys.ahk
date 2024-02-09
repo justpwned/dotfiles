@@ -190,19 +190,16 @@ if (activeProcessName = "chrome.exe") {
 }
 Return
 
+; Lock screen like on a mac
+^!q::DllCall("LockWorkStation")
+
 ; Close window
 #q::WinClose, A
 
-; Move window to the right monitor
 #+h::Send #+{Left}
-
-; Move window to the left monitor
 #+l::Send #+{Right}
 
-; Tile window to the left
 #^h::Send #{Left}
-
-; Tile window to the right
 #^l::Send #{Right}
 
 ; Minimize window
@@ -218,7 +215,7 @@ Return
 
 #Escape::OpenOrShowAppBasedOnExeName("C:\Windows\system32\Taskmgr.exe")
 #c::OpenOrShowAppBasedOnAppModelUserID("Calculator", "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App")
-#s::OpenOrShowAppBasedOnAppModelUserID("Spotify", "SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
+#s::OpenOrShowAppBasedOnExeName("C:\Users\justp\AppData\Roaming\Spotify\Spotify.exe")
 #t::OpenOrShowAppBasedOnExeName("C:\Users\justp\AppData\Roaming\Telegram Desktop\Telegram.exe")
 #b::Run chrome.exe
 
