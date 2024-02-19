@@ -10,8 +10,7 @@
 [alias]
 	graph = log --oneline --graph
 	grapha = log --oneline --graph --all
-	pushall = !git remote | xargs -l git push --all
 	st = status
-	ci = commit
+	cm = commit -m
 [pull]
 	rebase = false
