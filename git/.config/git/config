@@ -11,6 +11,7 @@
 	graph = log --oneline --graph
 	grapha = log --oneline --graph --all
 	st = status
+	ll = log --oneline
 	cm = commit -m
 [pull]
 	rebase = false
