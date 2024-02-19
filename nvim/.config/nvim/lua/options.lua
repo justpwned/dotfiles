@@ -31,6 +31,8 @@ vim.o.sidescrolloff = 8
 vim.o.breakindent = true
 vim.o.signcolumn = 'yes'
 
+vim.g.python3_host_prog = '/Users/joiput/miniconda3/envs/pynvim/bin/python'
+
 -- See `:help vim.highlight.on_yank`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
