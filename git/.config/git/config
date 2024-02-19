@@ -15,3 +15,9 @@
 	cm = commit -m
 [pull]
 	rebase = false
+[diff]
+	tool = nvimdiff
+[merge]
+	tool = nvimdiff
+[difftool]
+	prompt = false
