@@ -3,6 +3,7 @@
 	name = justpwned
 [core]
 	editor = nvim
+	pager = less -F
 [init]
 	defaultBranch = main
 [credential]
