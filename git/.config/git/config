@@ -13,6 +13,7 @@
 	ci = commit
 	cm = commit -m
 	br = branch
+	bra = branch -vva
 	co = checkout
 	ll = log --oneline
 	la = log --oneline --all
