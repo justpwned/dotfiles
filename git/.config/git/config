@@ -9,11 +9,14 @@
 [credential]
 	helper = store
 [alias]
-	graph = log --oneline --graph
-	grapha = log --oneline --graph --all
 	st = status
-	ll = log --oneline
+	ci = commit
 	cm = commit -m
+	br = branch
+	co = checkout
+	ll = log --oneline
+	la = log --oneline --all
+	lg = log --oneline --all --graph
 [pull]
 	rebase = false
 [diff]
