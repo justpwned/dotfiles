@@ -41,15 +41,11 @@ cmap("<Up>", "<C-p>")
 map("Q", "<Nop>")
 map("<Space>", "<Nop>")
 
--- nmap("<leader>s", "<cmd>update<cr>")
--- nmap("<leader>m", "<cmd>messages<cr>")
--- nmap("<leader>l", "<cmd>noh<cr>", { silent = true })
 nmap("<leader>q", "<cmd>qa!<cr>")
 
 -- Search and replace word under cursor
 nmap("<leader>s", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
--- Center cursor location on next occurrence
 nmap("<C-u>", "<C-u>zz")
 nmap("<C-d>", "<C-d>zz")
 nmap("n", "nzzzv")
