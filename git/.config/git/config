@@ -4,6 +4,7 @@
 [core]
 	editor = nvim
 	pager = less -F
+	excludesfile = /Users/joiput/.config/git/.gitignore
 [init]
 	defaultBranch = main
 [credential]
@@ -26,3 +27,5 @@
 	tool = nvimdiff
 [difftool]
 	prompt = false
+[push]
+	autoSetupRemote = true

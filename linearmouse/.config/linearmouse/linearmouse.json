@@ -2,24 +2,51 @@
   "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
   "schemes" : [
     {
-      "buttons" : {
-        "universalBackForward" : true
+      "scrolling" : {
+        "speed" : 0,
+        "distance" : 3,
+        "acceleration" : 1
       },
       "pointer" : {
         "disableAcceleration" : true
       },
       "if" : {
         "device" : {
+          "productName" : "USB Receiver",
           "vendorID" : "0x46d",
           "category" : "mouse",
-          "productName" : "USB Receiver",
           "productID" : "0xc52b"
         }
       },
+      "buttons" : {
+        "universalBackForward" : true
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productName" : "2.4G Wireless Receiver",
+          "category" : "mouse",
+          "vendorID" : "0x258a",
+          "productID" : "0x2f"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0
+      },
+      "buttons" : {
+        "universalBackForward" : true
+      },
       "scrolling" : {
-        "acceleration" : 1,
-        "speed" : 0,
-        "distance" : 3
+        "speed" : {
+          "vertical" : 0
+        },
+        "distance" : {
+          "vertical" : 3
+        },
+        "acceleration" : {
+          "vertical" : 1
+        }
       }
     }
   ]
