@@ -1,0 +1,41 @@
+{
+    "title": "MX Master Thumb Button to Mission Control",
+    "rules": [
+        {
+            "description": "Remap MX Master thumb button to Mission Control",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "tab",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "up_arrow",
+                            "modifiers": [
+                                "control"
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1133,
+                                    "product_id": 50475,
+                                    "location_id": 339738624
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

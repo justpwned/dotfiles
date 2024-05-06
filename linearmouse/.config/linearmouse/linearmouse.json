@@ -1,51 +1,79 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
-  "schemes" : [
+  "$schema": "https:\/\/schema.linearmouse.app\/0.9.5",
+  "schemes": [
     {
-      "scrolling" : {
-        "speed" : 0,
-        "distance" : 3,
-        "acceleration" : 1
+      "scrolling": {
+        "acceleration": 1,
+        "distance": 3,
+        "speed": 0
       },
-      "pointer" : {
-        "disableAcceleration" : true
+      "pointer": {
+        "disableAcceleration": true
       },
-      "if" : {
-        "device" : {
-          "productName" : "USB Receiver",
-          "vendorID" : "0x46d",
-          "category" : "mouse",
-          "productID" : "0xc52b"
+      "buttons": {
+        "universalBackForward": true
+      },
+      "if": {
+        "device": {
+          "vendorID": "0x46d",
+          "productID": "0xc52b",
+          "category": "mouse",
+          "productName": "USB Receiver"
         }
-      },
-      "buttons" : {
-        "universalBackForward" : true
       }
     },
     {
-      "if" : {
-        "device" : {
-          "productName" : "2.4G Wireless Receiver",
-          "category" : "mouse",
-          "vendorID" : "0x258a",
-          "productID" : "0x2f"
+      "scrolling": {
+        "distance": {
+          "vertical": 3
+        },
+        "speed": {
+          "vertical": 0
+        },
+        "acceleration": {
+          "vertical": 1
         }
       },
-      "pointer" : {
-        "acceleration" : 0
+      "if": {
+        "device": {
+          "productID": "0x2f",
+          "productName": "2.4G Wireless Receiver",
+          "vendorID": "0x258a",
+          "category": "mouse"
+        }
       },
-      "buttons" : {
-        "universalBackForward" : true
+      "buttons": {
+        "universalBackForward": true
       },
-      "scrolling" : {
-        "speed" : {
-          "vertical" : 0
+      "pointer": {
+        "acceleration": 0
+      }
+    },
+    {
+      "pointer": {
+        "disableAcceleration": true
+      },
+      "if": {
+        "device": {
+          "vendorID": "0x16c0",
+          "productID": "0x27da",
+          "serialNumber": "pqrs.org:Karabiner-DriverKit-VirtualHIDPointing",
+          "productName": "Karabiner DriverKit VirtualHIDPointing 1.7.0",
+          "category": "mouse"
+        }
+      },
+      "buttons": {
+        "universalBackForward": true
+      },
+      "scrolling": {
+        "distance": {
+          "vertical": 3
         },
-        "distance" : {
-          "vertical" : 3
+        "acceleration": {
+          "vertical": 1
         },
-        "acceleration" : {
-          "vertical" : 1
+        "speed": {
+          "vertical": 0
         }
       }
     }
