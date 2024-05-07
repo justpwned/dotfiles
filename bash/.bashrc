@@ -15,7 +15,6 @@ export VISUAL=nvim
 export LANG=en_US.UTF-8
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/usr/local/go/bin:~/go/bin
-export PATH=$PATH:/usr/local/opt/postgresql@16/bin
 
 alias se=sudoedit
 alias ls=eza
