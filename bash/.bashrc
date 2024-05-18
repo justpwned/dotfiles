@@ -22,7 +22,6 @@ alias ll="ls -la"
 alias lt="ls -T"
 
 eval "$(starship init bash)"
-eval "$(fnm env --use-on-cd)"
 . "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
