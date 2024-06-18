@@ -32,7 +32,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Regular "map" doesn't remap in insert mode (see :help map-modes)
-map("<C-c>", "<Esc>")
+nmap("<C-c>", "<Esc>")
 imap("<C-c>", "<Esc>")
 tmap("<Esc>", "<C-\\><C-n>")
 cmap("<Down>", "<C-n>")
