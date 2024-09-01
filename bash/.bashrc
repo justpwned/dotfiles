@@ -20,6 +20,7 @@ alias ls=eza
 alias ll="ls -la"
 alias lt="ls -T"
 alias lg=lazygit
+alias t=tmux
 
 
 eval "$(starship init bash)"
