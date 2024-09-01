@@ -3,8 +3,8 @@
 	name = justpwned
 [core]
 	editor = nvim
-	pager = less -F
-	excludesfile = /Users/joiput/.config/git/.gitignore
+	pager = less -F --mouse -R
+	excludesfile = /home/joiput/repos/dotfiles/git/.config/git/.gitignore
 [init]
 	defaultBranch = main
 [credential]
@@ -19,6 +19,8 @@
 	ll = log --oneline
 	la = log --oneline --all
 	lg = log --oneline --all --graph
+	sta = stash --all
+	pfl = push --force-with-lease
 [pull]
 	rebase = false
 [diff]
@@ -29,3 +31,13 @@
 	prompt = false
 [push]
 	autoSetupRemote = true
+[includeif "gitdir:~/repos/wb/"]
+	path = ~/repos/wb/.gitconfig
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+[rerere]
+	enabled = true

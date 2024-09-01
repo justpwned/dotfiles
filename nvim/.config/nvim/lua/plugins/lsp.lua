@@ -99,6 +99,7 @@ return {
 					},
 				},
 			},
+			rust_analyzer = {},
 			-- clangd = {},
 			-- pylsp = {},
 			-- emmet_ls = {},

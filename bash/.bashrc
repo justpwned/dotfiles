@@ -5,22 +5,31 @@ if [[ $XDG_SESSION_TYPE == "x11" ]] then
     xset r rate 250 35
 fi
 
-stty -ixon
 shopt -s autocd
 
 export LESS="--mouse -R"
 export LESSHISTFILE=-
 export EDITOR=nvim
 export VISUAL=nvim
-export LANG=en_US.UTF-8
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:/usr/local/go/bin:~/go/bin
+export PATH=$PATH:/usr/local/go/bin:~/go/bin:~/.cargo/bin
 
 alias se=sudoedit
 alias ls=eza
 alias ll="ls -la"
 alias lt="ls -T"
+alias lg=lazygit
+
 
 eval "$(starship init bash)"
 [ -f ~/.cargo/env ] && . "$HOME/.cargo/env"
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+if [[ $(uname -r) =~ microsoft ]]; then
+    alias goland=goland64.exe
+    alias clip=clip.exe
+    alias open=explorer.exe
+    export DISPLAY=:0
+    export BROWSER=/usr/bin/wslview
+    export PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"'
+fi
