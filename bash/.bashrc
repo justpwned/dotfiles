@@ -6,6 +6,7 @@ if [[ $XDG_SESSION_TYPE == "x11" ]] then
 fi
 
 shopt -s autocd
+stty -ixon
 
 export LESS="--mouse -R"
 export LESSHISTFILE=-
