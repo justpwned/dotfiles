@@ -1,8 +1,6 @@
-if vim.g.vscode then
-else
+if not vim.g.vscode then
 	require("options")
 	require("keymap")
-
 
 	local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 	if not vim.loop.fs_stat(lazypath) then

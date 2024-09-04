@@ -94,6 +94,7 @@ return {
         vim.keymap.set("n", "<leader>fP", builtin.git_files)
         vim.keymap.set("n", "<leader>fs", live_grep_from_project_git_root)
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
+        vim.keymap.set("n", "<leader>gs", builtin.git_status)
         vim.keymap.set("n", "<leader>fc", function() builtin.colorscheme({ enable_preview = true }) end)
     end,
 }
