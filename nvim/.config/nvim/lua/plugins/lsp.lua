@@ -190,6 +190,21 @@ return {
 			return _augroups[client.id]
 		end
 
+		local function organize_imports(client, bufnr)
+			local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding())
+			params.context = { only = { "source.organizeImports" } }
+
+			local resp = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
+			for _, r in pairs(resp and resp.result or {}) do
+				if r.edit then
+					vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
+				else
+					print(r.command)
+					vim.lsp.buf.execute_command(r.command)
+				end
+			end
+		end
+
 		-- Whenever an LSP attaches to a buffer, we will run this function.
 		-- See `:help LspAttach` for more information about this autocmd event.
 		vim.api.nvim_create_autocmd('LspAttach', {
@@ -222,6 +237,8 @@ return {
 						end
 
 						-- require("conform").format({bufnr = args.buf})
+
+						organize_imports(client, bufnr)
 
 						vim.lsp.buf.format {
 							async = false,
