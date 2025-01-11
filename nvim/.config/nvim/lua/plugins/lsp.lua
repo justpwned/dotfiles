@@ -100,22 +100,6 @@ return {
                 },
             },
             rust_analyzer = {},
-            -- clangd = {},
-            -- pylsp = {},
-            -- emmet_ls = {},
-            -- jsonls = {},
-            -- cssls = {},
-            -- html = {
-            -- 	format = {
-            -- 		templating = true,
-            -- 		wrapLineLength = 120,
-            -- 		wrapAttributes = "auto",
-            -- 	},
-            -- 	hover = {
-            -- 		documentation = true,
-            -- 		references = true,
-            -- 	},
-            -- },
         }
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
