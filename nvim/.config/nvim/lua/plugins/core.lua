@@ -55,7 +55,7 @@ return {
                 require("todo-comments").jump_prev()
             end, { desc = "Previous todo comment" })
 
-            vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
+            vim.keymap.set("n", "<leader>fn", "<cmd>TodoTelescope<cr>")
         end
     },
 

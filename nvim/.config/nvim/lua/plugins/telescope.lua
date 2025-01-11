@@ -68,6 +68,7 @@ return {
                         ["<C-u>"] = false
                     },
                 },
+                file_ignore_patterns = { "^vendor/" },
             },
             pickers = {
                 find_files = {
