@@ -100,6 +100,7 @@ return {
                 },
             },
             rust_analyzer = {},
+            bufls = {},
         }
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -175,13 +176,13 @@ return {
         end
 
         local function organize_imports(client, bufnr)
-            local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding())
+            local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding(bufnr))
             params.context = { only = { "source.organizeImports" } }
 
             local resp = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
             for _, r in pairs(resp and resp.result or {}) do
                 if r.edit then
-                    vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
+                    vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding(bufnr))
                 else
                     print(r.command)
                     vim.lsp.buf.execute_command(r.command)
