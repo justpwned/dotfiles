@@ -1,0 +1,5 @@
+theme = iTerm2 Tango Light
+resize-overlay = never
+font-size = 14
+macos-option-as-alt = true
+font-feature = -calt, -liga, -dlig

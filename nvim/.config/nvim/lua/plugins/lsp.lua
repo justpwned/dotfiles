@@ -100,7 +100,6 @@ return {
                 },
             },
             rust_analyzer = {},
-            bufls = {},
         }
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
