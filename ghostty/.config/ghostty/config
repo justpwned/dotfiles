@@ -1,3 +1,4 @@
+confirm-close-surface = false
 theme = iTerm2 Tango Light
 resize-overlay = never
 font-size = 14
