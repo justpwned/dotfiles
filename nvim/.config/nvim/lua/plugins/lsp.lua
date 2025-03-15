@@ -83,6 +83,7 @@ return {
                 analyses = {
                     unusedparams = true,
                 },
+                buildFlags = { "-tags=integration" }
             },
             lua_ls = {
                 Lua = {

@@ -279,40 +279,6 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "caps_lock pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "d" },
-                                "to": [
-                                    {
-                                        "key_code": "mission_control",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "caps_lock pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "s" },
-                                "to": [
-                                    {
-                                        "key_code": "mission_control",
-                                        "modifiers": ["control"]
-                                    }
-                                ],
-                                "type": "basic"
                             }
                         ]
                     }
@@ -401,16 +367,6 @@
                             "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
                         }
                     ]
-                }
-            ],
-            "fn_function_keys": [
-                {
-                    "from": { "key_code": "f8" },
-                    "to": [{ "consumer_key_code": "fast_forward" }]
-                },
-                {
-                    "from": { "key_code": "f9" },
-                    "to": [{ "consumer_key_code": "play_or_pause" }]
                 }
             ],
             "name": "Default profile",
