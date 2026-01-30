@@ -5,6 +5,7 @@
 	editor = nvim
 	pager = less -F --mouse -R
 	excludesfile = /home/joiput/repos/dotfiles/git/.config/git/.gitignore
+	preloadindex = true
 [init]
 	defaultBranch = main
 [credential]
@@ -20,7 +21,8 @@
 	la = log --oneline --all
 	lg = log --oneline --all --graph
 	sta = stash --all
-	pfl = push --force-with-lease
+	pf = push --force-with-lease
+	cl = clone 
 [pull]
 	rebase = false
 [diff]

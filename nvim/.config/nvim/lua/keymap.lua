@@ -44,23 +44,23 @@ map("<Space>", "<Nop>")
 nmap("<leader>q", "<cmd>qa!<cr>")
 
 -- Search and replace word under cursor
-nmap("<leader>s", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
+-- nmap("<leader>s", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>")
 
 nmap("<C-u>", "<C-u>zz")
 nmap("<C-d>", "<C-d>zz")
 nmap("n", "nzzzv")
 nmap("N", "Nzzzv")
-nmap("J", "mzJ`z")
+nmap("mzJ`z", "J")
 
-nmap("<C-h>", "<cmd>wincmd h<cr>")
-nmap("<C-j>", "<cmd>wincmd j<cr>")
-nmap("<C-k>", "<cmd>wincmd k<cr>")
-nmap("<C-l>", "<cmd>wincmd l<cr>")
+-- nmap("<C-h>", "<cmd>wincmd h<cr>")
+-- nmap("<C-j>", "<cmd>wincmd j<cr>")
+-- nmap("<C-k>", "<cmd>wincmd k<cr>")
+-- nmap("<C-l>", "<cmd>wincmd l<cr>")
 
-nmap("<C-Up>", "<cmd>resize +10<cr>")
-nmap("<C-Down>", "<cmd>resize -10<cr>")
-nmap("<C-Left>", "<cmd>vertical resize -10<cr>")
-nmap("<C-Right>", "<cmd>vertical resize +10<cr>")
+nmap("<C-M-k>", "<cmd>resize +10<cr>")
+nmap("<C-M-j>", "<cmd>resize -10<cr>")
+nmap("<C-M-h>", "<cmd>vertical resize -10<cr>")
+nmap("<C-M-l>", "<cmd>vertical resize +10<cr>")
 
 vmap("<", "<gv")
 vmap(">", ">gv")
@@ -76,3 +76,5 @@ nmap("<leader>c", "<cmd>cclose<cr>")
 
 nmap("<leader>k", "<cmd>lnext<cr>zz")
 nmap("<leader>j", "<cmd>lprev<cr>zz")
+
+nmap("<leader>r", "<cmd>LspRestart<cr>")

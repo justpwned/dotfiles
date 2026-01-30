@@ -7,7 +7,8 @@ return {
             config = true,
         },
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
+        -- "hrsh7th/cmp-nvim-lsp",
+        'saghen/blink.cmp',
     },
     config = function()
         vim.diagnostic.config({
@@ -53,9 +54,12 @@ return {
             end, "[D]ocument [S]ymbols")
 
             -- See `:help K` for why this keymap
-            nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+            nmap("K", function()
+                vim.lsp.buf.hover({ border = "rounded", max_height = 25, max_width = 120 })
+            end, "Hover Documentation")
+
             nmap("<C-p>", vim.lsp.buf.signature_help, "Signature Documentation")
-            imap("<C-p>", vim.lsp.buf.signature_help, "Signature Documentation")
+            -- imap("<C-p>", vim.lsp.buf.signature_help, "Signature Documentation")
 
             -- Lesser used LSP functionality
             nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -69,7 +73,7 @@ return {
 
         local hover_config = {
             border = "rounded",
-            max_width = 80,
+            max_width = 80
         }
 
         local handlers = {
@@ -100,11 +104,14 @@ return {
                     },
                 },
             },
+            sqls = {},
             rust_analyzer = {},
         }
 
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+        -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
+        -- capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
 
         local mason_lspconfig = require("mason-lspconfig")
 
@@ -207,7 +214,7 @@ return {
 
                 -- Tsserver usually works poorly. Sorry you work with bad languages
                 -- You can remove this line if you know what you're doing :)
-                if client.name == 'tsserver' then
+                if client.name == 'tsserver' or client.name == 'sqls' then
                     return
                 end
 
@@ -221,9 +228,12 @@ return {
                             return
                         end
 
+                        if client.name == "gopls" then
+                            organize_imports(client, bufnr)
+                        end
+
                         -- require("conform").format({bufnr = args.buf})
 
-                        organize_imports(client, bufnr)
 
                         vim.lsp.buf.format {
                             async = false,

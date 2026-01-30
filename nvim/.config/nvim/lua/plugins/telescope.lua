@@ -7,10 +7,15 @@ local function find_files_from_project_git_root()
         local dot_git_path = vim.fn.finddir(".git", ".;")
         return vim.fn.fnamemodify(dot_git_path, ":h")
     end
-    local opts = {}
+    local opts = {
+        hidden = true,
+        no_ignore = true,
+    }
     if is_git_repo() then
         opts = {
             cwd = get_git_root(),
+            hidden = true,
+            no_ignore = true,
         }
     end
     require("telescope.builtin").find_files(opts)
@@ -28,11 +33,16 @@ local function live_grep_from_project_git_root()
         return vim.fn.fnamemodify(dot_git_path, ":h")
     end
 
-    local opts = {}
+    local opts = {
+        hidden = true,
+        no_ignore = true,
+    }
 
     if is_git_repo() then
         opts = {
             cwd = get_git_root(),
+            hidden = true,
+            no_ignore = true,
         }
     end
 
@@ -90,9 +100,7 @@ return {
         telescope.load_extension 'fzf'
 
         local builtin = require('telescope.builtin')
-        vim.keymap.set("n", "<leader>ff", builtin.find_files)
         vim.keymap.set("n", "<leader>fp", find_files_from_project_git_root)
-        vim.keymap.set("n", "<leader>fP", builtin.git_files)
         vim.keymap.set("n", "<leader>fs", live_grep_from_project_git_root)
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics)
         vim.keymap.set("n", "<leader>gs", builtin.git_status)

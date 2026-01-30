@@ -18,6 +18,30 @@ return {
     },
 
     {
+        "webhooked/kanso.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme "kanso-pearl"
+        end
+    },
+
+    {
+        "askfiy/visual_studio_code",
+        -- "Mofiqul/vscode.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("visual_studio_code").setup({
+                -- `dark` or `light`
+                mode = "light",
+            })
+
+            -- vim.cmd.colorscheme('vscode')
+        end
+    },
+
+    {
         "zenbones-theme/zenbones.nvim",
         -- Optionally install Lush. Allows for more configuration or extending the colorscheme
         -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
@@ -27,8 +51,8 @@ return {
         priority = 1000,
         -- you can set set configuration options here
         config = function()
-            vim.g.zenbones_darken_comments = 45
-            -- vim.cmd.colorscheme('zenbones')
+            -- vim.g.zenbones_darken_comments = 45
+            -- vim.cmd.colorscheme('neobones')
         end
     },
 
@@ -39,10 +63,9 @@ return {
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require('github-theme').setup({
-                -- ...
             })
 
-            vim.cmd('colorscheme github_light')
+            -- vim.cmd('colorscheme github_light_default')
         end,
     },
 
@@ -52,11 +75,6 @@ return {
         config = function()
             -- vim.cmd.colorscheme "gruvbox"
         end
-    },
-
-    {
-        "shaunsingh/solarized.nvim",
-        priority = 1000
     },
 
     {

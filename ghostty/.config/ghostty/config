@@ -1,6 +1,21 @@
 confirm-close-surface = false
-theme = iTerm2 Tango Light
+theme = kanso-pearl
 resize-overlay = never
-font-size = 14
+font-size = 15
 macos-option-as-alt = true
 font-feature = -calt, -liga, -dlig
+adjust-cursor-thickness = 2
+bell-features = no-attention,no-title,no-border,no-audio,no-system
+
+# Split navigation (Option + hjkl)
+# keybind = alt+h=goto_split:left
+# keybind = alt+j=goto_split:down
+# keybind = alt+k=goto_split:up
+# keybind = alt+l=goto_split:right
+
+# Split resizing (Option + Shift + hjkl)
+# keybind = alt+shift+h=resize_split:left,100
+# keybind = alt+shift+j=resize_split:down,100
+# keybind = alt+shift+k=resize_split:up,100
+# keybind = alt+shift+l=resize_split:right,100
+# keybind = alt+shift+0=equalize_splits
