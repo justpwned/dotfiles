@@ -78,3 +78,47 @@ nmap("<leader>k", "<cmd>lnext<cr>zz")
 nmap("<leader>j", "<cmd>lprev<cr>zz")
 
 nmap("<leader>r", "<cmd>LspRestart<cr>")
+
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        local nmap = function(keys, func, desc)
+            if desc then
+                desc = "LSP: " .. desc
+            end
+            vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = desc })
+        end
+
+        nmap("[d", function() vim.diagnostic.jump({ count = -1, }) end, "Go to previous diagnostic message")
+        nmap("]d", function() vim.diagnostic.jump({ count = 1, }) end, "Go to next diagnostic message")
+
+        nmap("<leader>dl", function() vim.diagnostic.setqflist() end, "Open diagnostics list")
+        nmap("gl", vim.diagnostic.open_float, "Show diagnostics message")
+
+        nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+        nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+        local builtin = require("telescope.builtin")
+        nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+        -- nmap("<leader>gr", builtin.lsp_references, "[G]oto [R]eferences")
+        nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+        nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+        nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+        nmap("<leader>ds", function()
+            builtin.lsp_document_symbols({ symbol_width = 40 })
+        end, "[D]ocument [S]ymbols")
+
+        nmap("K", function()
+            vim.lsp.buf.hover({ border = "rounded", max_height = 25, max_width = 120 })
+        end, "Hover Documentation")
+
+        nmap("<C-p>", vim.lsp.buf.signature_help, "Signature Documentation")
+        nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+        vim.api.nvim_buf_create_user_command(ev.buf, "Format", function(_)
+            vim.lsp.buf.format()
+        end, { desc = "Format current buffer with LSP" })
+        nmap("<leader>fl", "<cmd>Format<cr>", "Format file")
+    end,
+})

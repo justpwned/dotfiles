@@ -31,6 +31,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.breakindent = true
 vim.opt.signcolumn = 'yes'
 vim.opt.autoread = true
+vim.opt.winborder = 'rounded'
 
 vim.g.python3_host_prog = '/Users/joiput/miniconda3/envs/pynvim/bin/python'
 
@@ -46,5 +47,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = highlight_group,
     pattern = '*',
 })
-
-

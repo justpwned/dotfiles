@@ -22,6 +22,7 @@
 	lg = log --oneline --all --graph
 	sta = stash --all
 	pf = push --force-with-lease
+	cam = commit --amend --no-edit
 	cl = clone 
 [pull]
 	rebase = false

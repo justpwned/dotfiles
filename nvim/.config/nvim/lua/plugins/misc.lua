@@ -13,7 +13,21 @@ return {
         lazy = false,
         opts = {
             git = { enabled = true },
-            gitbrowse = { enabled = true },
+            gitbrowse = {
+                enabled = true,
+                remote_patterns = {
+                    { "^git@gitlab%.wildberries%.ru:(.*)%.git$",      "https://gitlab.wildberries.ru/%1" },
+                    { "^http.*://gitlab%.wildberries%.ru/(.*)%.git$", "https://gitlab.wildberries.ru/%1" },
+                },
+                url_patterns = {
+                    ["gitlab%.wildberries.ru"] = {
+                        branch = "/-/tree/{branch}",
+                        file = "/-/blob/{branch}/{file}#L{line_start}-{line_end}",
+                        permalink = "/-/blob/{commit}/{file}#L{line_start}-{line_end}",
+                        commit = "/-/commit/{commit}",
+                    },
+                },
+            },
             bigfile = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
@@ -24,7 +38,7 @@ return {
             picker = { enabled = false },
         },
         keys = {
-            { "<leader>fo", function() Snacks.gitbrowse() end, desc = "Grep" },
+            { "<leader>go", function() Snacks.gitbrowse() end, desc = "Grep" },
         },
     },
 
