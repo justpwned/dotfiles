@@ -101,8 +101,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local builtin = require("telescope.builtin")
         nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-        -- nmap("<leader>gr", builtin.lsp_references, "[G]oto [R]eferences")
-        nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences")
+        nmap("<leader>gr", builtin.lsp_references, "[G]oto [R]eferences")
+        nmap("gr", function()
+            vim.lsp.buf.references(nil, {
+                on_list = function(options)
+                    vim.fn.setqflist({}, " ", options)
+                    vim.cmd.copen()
+                    vim.cmd.cfirst()
+                end,
+            })
+        end, "[G]oto [R]eferences")
         nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
         nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
         nmap("<leader>ds", function()

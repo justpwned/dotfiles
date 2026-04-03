@@ -7,6 +7,9 @@ font-feature = -calt, -liga, -dlig
 adjust-cursor-thickness = 2
 bell-features = no-attention,no-title,no-border,no-audio,no-system
 
+# claude code thingy
+keybind = shift+enter=text:\n
+
 # Split navigation (Option + hjkl)
 # keybind = alt+h=goto_split:left
 # keybind = alt+j=goto_split:down
