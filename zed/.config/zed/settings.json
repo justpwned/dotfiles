@@ -1,0 +1,82 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "JetBrains New UI Icons (Light)",
+  "cursor_blink": false,
+  "preview_tabs": {
+    "enabled": false,
+  },
+  "toolbar": {
+    "quick_actions": false,
+    "selections_menu": false,
+  },
+  "use_system_window_tabs": true,
+  "tabs": {
+    "activate_on_close": "neighbour",
+    "show_diagnostics": "off",
+    "file_icons": true,
+    "git_status": false,
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": false,
+    "show_nav_history_buttons": false,
+    "show": false,
+  },
+  "agent_ui_font_size": 16.0,
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry",
+    },
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "right",
+  },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false,
+      "vertical": true,
+    },
+  },
+  "vim_mode": true,
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false,
+  },
+  "ui_font_size": 16.0,
+  "buffer_font_size": 14.0,
+  "buffer_font_features": {
+    "calt": false,
+  },
+  "theme": {
+    "mode": "light",
+    "light": "macOS Classic Light",
+    "dark": "One Dark",
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+  },
+  "title_bar": {
+    // "show_project_items": false,
+  },
+}
